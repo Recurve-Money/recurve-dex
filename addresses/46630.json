@@ -3,8 +3,8 @@
   "name": "Robinhood Chain Testnet",
   "note": "No official Uniswap V3 deployment is documented on this testnet (only mainnet, 4663, is). This is our own deployment of the real, unmodified Uniswap v3-core v1.0.0 / v3-periphery v1.3.0 source, for testing only.",
   "UniswapV3Factory": "0xd63a5Df082db7f706e67AC8550AFc8C95da09ed5",
-  "SwapRouter": "0x8D5592B580e7f549cf4F17a0bECB98261e9a4750",
-  "QuoterV2": "0x8a2b8a7a6ba9F43bb27A2c7dDF81D6d1bF8ACAe9",
+  "SwapRouter": "0x71fE35Cfe010f9E26E9E988cDa249dE42D8aAa0A",
+  "QuoterV2": "0x2691988858D1CA6176D67575Ad4d388BA2664fcA",
   "deployBlock": 108203627,
   "SeedPool": "0x8C55158f359C04e8F7FC3077b0Ce43f13a4fF5B7",
   "pools": [
@@ -14,5 +14,6 @@
       "address": "0x480bb559c6fe1b1d6381f7af07bef862d0a5afcd",
       "seededAt": "2026-08-27"
     }
-  ]
+  ],
+  "_note2": "SwapRouter/QuoterV2 redeployed after fixing PoolAddress.sol POOL_INIT_CODE_HASH (original hardcoded value was from Uniswap mainnet, did not match our own Foundry build). Original addresses (broken, computed wrong pool addresses): SwapRouter 0x8D5592B580e7f549cf4F17a0bECB98261e9a4750, QuoterV2 0x8a2b8a7a6ba9F43bb27A2c7dDF81D6d1bF8ACAe9. Factory unaffected."
 }
