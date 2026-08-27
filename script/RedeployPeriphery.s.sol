@@ -6,9 +6,10 @@ import "@uniswap/v3-periphery/contracts/SwapRouter.sol";
 import "@uniswap/v3-periphery/contracts/lens/QuoterV2.sol";
 
 interface Vm {
-    function startBroadcast() external;
+    function startBroadcast(uint256 privateKey) external;
     function stopBroadcast() external;
     function envAddress(string calldata name) external returns (address);
+    function envUint(string calldata name) external returns (uint256);
 }
 
 /// Router + Quoter only -- the factory and the already-seeded pool don't use
@@ -20,8 +21,9 @@ contract RedeployPeriphery {
     function run() external {
         address factory = vm.envAddress("DEX_FACTORY");
         address weth = vm.envAddress("VAULT_ASSET");
+        uint256 pk = vm.envUint("PRIVATE_KEY");
 
-        vm.startBroadcast();
+        vm.startBroadcast(pk);
         SwapRouter router = new SwapRouter(factory, weth);
         QuoterV2 quoter = new QuoterV2(factory, weth);
         vm.stopBroadcast();
