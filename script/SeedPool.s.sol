@@ -104,7 +104,7 @@ contract Seed {
         uint256 pk = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(pk);
 
-        uint256 wethAmount = 0.1 ether;
+        uint256 wethAmount = 0.005 ether;
         uint256 recurvePerWeth = 1_000_000;
 
         vm.startBroadcast(pk);
