@@ -11,9 +11,10 @@ import "@uniswap/v3-periphery/contracts/lens/QuoterV2.sol";
 /// the two cheatcodes this script actually needs instead of importing
 /// forge-std's Script.sol.
 interface Vm {
-    function startBroadcast() external;
+    function startBroadcast(uint256 privateKey) external;
     function stopBroadcast() external;
     function envAddress(string calldata name) external returns (address);
+    function envUint(string calldata name) external returns (uint256);
 }
 
 /// Deploys the minimal Uniswap V3 stack a strategy needs to actually swap:
@@ -27,8 +28,9 @@ contract DeployDex {
 
     function run() external {
         address weth = vm.envAddress("VAULT_ASSET"); // testnet WETH, already deployed
+        uint256 pk = vm.envUint("PRIVATE_KEY");
 
-        vm.startBroadcast();
+        vm.startBroadcast(pk);
 
         UniswapV3Factory factory = new UniswapV3Factory();
         SwapRouter router = new SwapRouter(address(factory), weth);
