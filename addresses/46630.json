@@ -1,0 +1,9 @@
+{
+  "chainId": 46630,
+  "name": "Robinhood Chain Testnet",
+  "note": "No official Uniswap V3 deployment is documented on this testnet (only mainnet, 4663, is). This is our own deployment of the real, unmodified Uniswap v3-core v1.0.0 / v3-periphery v1.3.0 source, for testing only.",
+  "UniswapV3Factory": "0xd63a5Df082db7f706e67AC8550AFc8C95da09ed5",
+  "SwapRouter": "0x8D5592B580e7f549cf4F17a0bECB98261e9a4750",
+  "QuoterV2": "0x8a2b8a7a6ba9F43bb27A2c7dDF81D6d1bF8ACAe9",
+  "deployBlock": 108203627
+}
